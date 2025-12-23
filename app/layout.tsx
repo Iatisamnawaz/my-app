@@ -1,16 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { primaryFont, monoFont } from "./fonts";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Navbar from "@/components/Navbar";
+import Aurora from "@/components/AuroraBackground";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,8 +17,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
+        className={`${primaryFont.variable} ${monoFont.variable} antialiased relative`}
       >
+        <div className="fixed inset-0 -z-10">
+          <Aurora 
+            colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+            blend={0.5}
+            amplitude={0.5}
+            speed={0.5}
+          />
+        </div>
+        <Navbar />
         {children}
       </body>
     </html>
