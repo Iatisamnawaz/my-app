@@ -28,8 +28,8 @@ export default function Projects() {
 
   // Smooth out the scroll value for fluid animation
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 200,
+    damping: 25,
     restDelta: 0.001
   });
 
@@ -43,15 +43,15 @@ export default function Projects() {
   const scrollToSegment = (index: number, isGrid = false) => {
     if (!containerRef.current) return;
     
-    // Projects: Index 0 -> Segment 1
-    // Grid: Index N -> Segment N+1
+    // Projects: Index 0 -> Segment 0.8 (Shifted)
+    // Grid: Index N -> Segment N+0.8 (Shifted)
     
     let targetSegment;
     
     if (isGrid) {
-        targetSegment = projects.length + 1;
+        targetSegment = projects.length + 0.8;
     } else {
-        targetSegment = index + 1;
+        targetSegment = index + 0.8;
     }
     
     const segmentHeight = window.innerHeight * 1.5; // Match the 150vh scale
@@ -107,7 +107,7 @@ export default function Projects() {
           <SummaryGrid 
             projects={projects} 
             globalProgress={smoothProgress} 
-            range={[(projects.length + 1) / totalSegments, 1]} 
+            range={[(projects.length + 0.8) / totalSegments, 1]} 
           />
         )}
         
@@ -161,7 +161,7 @@ function NavButton({
   isGrid?: boolean,
   onClick: () => void
 }) {
-    const segmentIndex = index + 1;
+    const segmentIndex = isGrid ? index + 1 : index + 0.8;
     const step = 1 / totalSegments;
     const start = segmentIndex * step;
     const end = start + step;
@@ -213,7 +213,7 @@ function SummaryGrid({
   range: [number, number] 
 }) {
   const opacity = useTransform(globalProgress, [range[0] - 0.05, range[0]], [0, 1]);
-  const scale = useTransform(globalProgress, [range[0] - 0.05, range[0]], [0.8, 1]);
+  const scale = useTransform(globalProgress, [range[0] - 0.05, range[0]], [0.95, 1]);
   const y = useTransform(globalProgress, [range[0] - 0.05, range[0]], [50, 0]);
   
   // Only render/animate when we are near the end
@@ -322,7 +322,8 @@ function ProjectItem({
   
   // Calculate active state based on index + 1 (Intro + 1 shift)
   // Intro = 0, Project 0 starts assembling at 0, Peaks at 1
-  const activeVal = useTransform(scrollIndex, (v) => v - (index + 1)); 
+  // Shifted by 0.2 to reduce initial delay
+  const activeVal = useTransform(scrollIndex, (v) => v - (index + 0.8)); 
 
   // Use isLast to avoid unused variable warning
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -334,36 +335,37 @@ function ProjectItem({
   // --- Animations ---
   
   // 1. Clip Path Reveal (Iris effect)
-  // Incoming: -0.75 -> 0 (Fade in faster, earlier)
-  const clipSize = useTransform(activeVal, [-0.75, 0, 0.8], ["0%", "150%", "150%"]);
+  // Incoming: -0.6 -> 0 (Fade in)
+  const clipSize = useTransform(activeVal, [-0.6, 0, 0.6], ["0%", "150%", "150%"]);
   const clipPath = useMotionTemplate`circle(${clipSize} at 50% 50%)`;
   
   // 2. Image Scale & Rotation & Resistance
-  // 0 -> 0.8: Sticky Phase (slight movement to show resistance)
-  // 0.8 -> 1: Exit Phase
-  const scale = useTransform(activeVal, [-0.75, 0, 0.8, 1], [0.5, 1, 0.95, 1.2]);
-  const rotate = useTransform(activeVal, [-0.75, 0, 0.8, 1], [-20, 0, -2, 0]);
+  // 0 -> 0.6: Sticky Phase (slight movement to show resistance)
+  // 0.6 -> 1: Exit Phase
+  const scale = useTransform(activeVal, [-0.6, 0, 0.6, 1], [0.8, 1, 0.95, 1.1]);
+  const rotate = useTransform(activeVal, [-0.6, 0, 0.6, 1], [-10, 0, -2, 0]);
   
   // Opacity: 
-  // -0.75 -> 0: Fade In
-  // 0 -> 0.8: Fully Visible (Sticky)
-  // 0.8 -> 1: Fade Out (Transition to next)
+  // -0.6 -> 0: Fade In
+  // 0 -> 0.6: Fully Visible (Sticky)
+  // 0.6 -> 1: Fade Out (Transition to next)
+  // If last project, extend visibility to overlap with Grid entry
   const opacity = useTransform(
     activeVal,
-    [-0.75, 0, 0.8, 1],
+    [-0.6, 0, isLast ? 0.8 : 0.6, isLast ? 1.2 : 1],
     [0, 1, 1, 0]
   );
   
   // 3. Text Kinetic Motion
-  const titleX = useTransform(activeVal, [-0.75, 0, 0.8, 1], [-100, 0, 0, -100]);
+  const titleX = useTransform(activeVal, [-0.6, 0, 0.6, 1], [-50, 0, 0, -50]);
   
-  const titleOpacity = useTransform(activeVal, [-0.75, 0, 0.8, 1], [0, 1, 1, 0]);
+  const titleOpacity = useTransform(activeVal, [-0.6, 0, 0.6, 1], [0, 1, 1, 0]);
   
-  const descY = useTransform(activeVal, [-0.75, 0, 0.8, 1], [100, 0, 0, 100]);
-  const descOpacity = useTransform(activeVal, [-0.75, 0, 0.8, 1], [0, 1, 1, 0]);
+  const descY = useTransform(activeVal, [-0.6, 0, 0.6, 1], [50, 0, 0, 50]);
+  const descOpacity = useTransform(activeVal, [-0.6, 0, 0.6, 1], [0, 1, 1, 0]);
 
   // 4. Background Parallax
-  const xOffset = useTransform(activeVal, [-0.75, 1], ["-20%", "20%"]);
+  const xOffset = useTransform(activeVal, [-0.6, 1], ["-10%", "10%"]);
 
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">

@@ -154,7 +154,7 @@ export const projects = [
     color: "#A78BFA"
   },
   {
-    id: 7,
+    id: 6,
     title: "Machine Learning Analysis",
     category: "Machine Learning",
     description:
@@ -167,7 +167,7 @@ export const projects = [
     color: "#22D3EE"
   },
   {
-    id: 8,
+    id: 7,
     title: "Merkelrex Exchange",
     category: "C++ / Systems",
     description:
@@ -178,7 +178,7 @@ export const projects = [
     repo: "https://github.com/Iatisamnawaz/Merkelrex-Exchange",
     live: "https://youtu.be/Dr1G9H9J10o",
     color: "#4ADE80"
-  },
+  }
 ];
 
 // =========================================
