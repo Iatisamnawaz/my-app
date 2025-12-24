@@ -56,18 +56,31 @@ export default function Overview() {
                     threshold={0.5}
                 />
 
-                <div ref={domeRef} className="w-full h-[600px] md:h-[800px] relative">
-                    <DomeGallery
-                        images={techImages}
-                        fit={isMobile ? 1.0 : 0.6}
-                        minRadius={isMobile ? 350 : 300}
-                        maxRadius={isMobile ? 550 : 600}
-                        grayscale={false}
-                        openedImageWidth={isMobile ? "150px" : "200px"}
-                        openedImageHeight={isMobile ? "150px" : "200px"}
-                        imageBorderRadius="12px"
-                    />
-                </div>
+                {isMobile ? (
+                    <div className="grid grid-cols-3 gap-6 mt-12 w-full px-4">
+                        {techImages.map((tech, index) => (
+                            <div key={index} className="flex flex-col items-center justify-center gap-3">
+                                <div className="w-16 h-16 relative bg-white/5 rounded-2xl p-3 border border-white/10 flex items-center justify-center backdrop-blur-sm">
+                                    <img src={tech.src} alt={tech.alt} className="w-full h-full object-contain" />
+                                </div>
+                                <span className="text-xs text-white/60 font-medium text-center">{tech.alt}</span>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div ref={domeRef} className="w-full h-[600px] md:h-[800px] relative">
+                        <DomeGallery
+                            images={techImages}
+                            fit={0.6}
+                            minRadius={300}
+                            maxRadius={600}
+                            grayscale={false}
+                            openedImageWidth="200px"
+                            openedImageHeight="200px"
+                            imageBorderRadius="12px"
+                        />
+                    </div>
+                )}
             </div>
         </section>
     )

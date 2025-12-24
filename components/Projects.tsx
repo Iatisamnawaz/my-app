@@ -64,6 +64,80 @@ export default function Projects() {
     });
   };
 
+  if (isMobile) {
+    return (
+      <section id="projects" className="relative py-20 px-6 bg-transparent">
+        <div className="w-full max-w-md mx-auto">
+          <h2 className="text-5xl font-black text-white mb-16 tracking-tighter text-center">
+            SELECTED<br/>WORKS
+          </h2>
+          
+          <div className="flex flex-col gap-20">
+            {projects.map((project) => (
+              <div key={project.id} className="group flex flex-col gap-6">
+                {/* Image Card */}
+                <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-white/5">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                </div>
+                
+                {/* Content */}
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-mono text-emerald-400">0{project.id}</span>
+                      <span className="text-xs font-mono text-white/50 uppercase tracking-wider">{project.category}</span>
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      {project.live && project.live !== "#" && (
+                        <a href={project.live} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors">
+                          <ArrowUpRight size={16} />
+                        </a>
+                      )}
+                      {project.repo && project.repo !== "#" && (
+                        <a href={project.repo} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors">
+                          <Github size={16} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-3xl font-bold text-white mb-2 leading-tight">{project.title}</h3>
+                    <p className="text-neutral-400 text-sm leading-relaxed">{project.description}</p>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.tech.map((t, i) => (
+                      <span key={i} className="px-3 py-1 text-[10px] font-mono border border-white/10 bg-white/5 rounded-full text-white/70">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-24 text-center">
+             <Link 
+               href="https://github.com/Iatisamnawaz" 
+               target="_blank" 
+               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-bold text-sm tracking-widest hover:bg-neutral-200 transition-colors"
+             >
+                VIEW ALL PROJECTS <Github size={18} />
+             </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section ref={containerRef} id="projects" className="relative" style={{ height }}>
 
