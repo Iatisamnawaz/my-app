@@ -58,7 +58,7 @@ export const experiences = [
     role: "Full Stack Developer",
     company: "Edulaxy",
     location: "Pakistan, Islamabad",
-    period: "Jun 2021 - Mar 2025",
+    period: "Feb 2024 - Mar 2025",
     description: [
       "Led the website overhaul, driving a 40% increase in user engagement and 20% drop in bounce rates.",
       "Developed an automated support chatbot and Python scripts for streamlining user management workflows."

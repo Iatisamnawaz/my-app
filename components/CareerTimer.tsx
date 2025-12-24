@@ -1,9 +1,28 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
+import { experiences } from "@/app/constants";
 
-const START_DATE = new Date("2021-06-01T09:00:00");
+const getEarliestStartDate = () => {
+  if (!experiences || experiences.length === 0) {
+    return new Date("2021-06-01T09:00:00"); // Default fallback
+  }
+
+  let earliest = new Date();
+
+  experiences.forEach(exp => {
+    // Extract start date string (e.g., "Apr 2025" from "Apr 2025 - Present")
+    const startDateStr = exp.period.split(" - ")[0];
+    const date = new Date(startDateStr);
+    
+    if (!isNaN(date.getTime()) && date < earliest) {
+      earliest = date;
+    }
+  });
+
+  return earliest;
+};
 
 interface TimeElapsed {
   years: number;
@@ -24,10 +43,12 @@ export default function CareerTimer({ simple = false }: { simple?: boolean }) {
     seconds: 0,
   });
 
+  const startDate = useMemo(() => getEarliestStartDate(), []);
+
   useEffect(() => {
     const calculateTime = () => {
       const now = new Date();
-      const diff = now.getTime() - START_DATE.getTime();
+      const diff = now.getTime() - startDate.getTime();
 
       const seconds = Math.floor((diff / 1000) % 60);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
@@ -57,11 +78,11 @@ export default function CareerTimer({ simple = false }: { simple?: boolean }) {
 
   if (simple) {
     return (
-      <div className="flex items-center gap-2 text-[15px] sm:text-xs font-mono text-white/80 whitespace-nowrap">
+      <div className="flex items-center gap-2 text-[10px] xs:text-[11px] font-mono text-white/80 whitespace-nowrap">
         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
         <span className="tracking-wide">
-          <span className="hidden xs:inline">Exp: </span>
-          <span className="text-white font-bold">{time.years}y {time.months}m {time.days}d {time.hours}h {time.minutes}m {time.seconds}s</span>
+          <span className="inline">Experience: </span>
+          <span className="text-white font-bold">{time.years}y {time.months}m {time.days}d {time.hours}h {time.minutes}m</span>
         </span>
       </div>
     );
