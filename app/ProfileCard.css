@@ -405,8 +405,8 @@
   }
 
   .pc-card {
-    height: 70svh;
-    max-height: 450px;
+    height: 60svh;
+    max-height: 400px;
   }
 
   .pc-details {
@@ -451,8 +451,8 @@
 
 @media (max-width: 480px) {
   .pc-card {
-    height: 60svh;
-    max-height: 380px;
+    height: 50svh;
+    max-height: 340px;
   }
 
   .pc-details {

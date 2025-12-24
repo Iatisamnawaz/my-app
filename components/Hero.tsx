@@ -13,7 +13,7 @@ const handleAnimationComplete = () => {
 
 export default function Hero() {
     return (
-        <section id="hero" className="min-h-[100svh] flex flex-col items-center justify-center p-5 pt-20 pb-8 md:py-0 relative overflow-hidden">
+        <section id="hero" className="min-h-[100svh] flex flex-col items-center justify-center p-5 pt-20 pb-8 md:pt-20 md:pb-0 relative overflow-hidden">
             <div className="container mx-auto px-4 flex flex-col md:grid md:grid-cols-2 h-full justify-evenly md:justify-center gap-6 md:gap-12 items-center">
                 <div className="flex flex-col items-start justify-center order-2 md:order-1 relative z-20 text-left w-full">
                     <SplitText
