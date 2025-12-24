@@ -163,18 +163,19 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   }, [updateDisplacementMap]);
 
   const supportsSVGFilters = React.useCallback(() => {
+    // Force fallback on iOS/Safari as SVG backdrop filters are unreliable there
+    // They often result in transparent/invisible elements or glitches
     if (typeof window === 'undefined') return false;
+    
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    
+    if (isIOS || isSafari) return false;
 
-    // Try standard property
+    // For other browsers, test support
     const div = document.createElement('div');
     div.style.backdropFilter = `url(#${filterId})`;
-    if (div.style.backdropFilter !== '') return true;
-
-    // Try webkit prefix
-    // @ts-ignore
-    div.style.webkitBackdropFilter = `url(#${filterId})`;
-    // @ts-ignore
-    return div.style.webkitBackdropFilter !== '';
+    return div.style.backdropFilter !== '';
   }, [filterId]);
 
   const [svgSupported, setSvgSupported] = useState(false);

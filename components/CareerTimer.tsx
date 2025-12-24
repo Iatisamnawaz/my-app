@@ -4,6 +4,29 @@ import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { experiences } from "@/app/constants";
 
+const parseDateString = (dateStr: string) => {
+  // Handle "Month YYYY" format manually for better cross-browser compatibility (especially iOS)
+  const parts = dateStr.trim().split(' ');
+  if (parts.length === 2) {
+    const monthStr = parts[0];
+    const year = parseInt(parts[1]);
+    
+    const months: { [key: string]: number } = {
+      'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+      'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11,
+      'January': 0, 'February': 1, 'March': 2, 'April': 3, 'June': 5,
+      'July': 6, 'August': 7, 'September': 8, 'October': 9, 'November': 10, 'December': 11
+    };
+
+    if (!isNaN(year) && months.hasOwnProperty(monthStr)) {
+      return new Date(year, months[monthStr], 1);
+    }
+  }
+  
+  // Fallback to standard parsing
+  return new Date(dateStr);
+};
+
 const getEarliestStartDate = () => {
   if (!experiences || experiences.length === 0) {
     return new Date("2021-06-01T09:00:00"); // Default fallback
@@ -14,7 +37,7 @@ const getEarliestStartDate = () => {
   experiences.forEach(exp => {
     // Extract start date string (e.g., "Apr 2025" from "Apr 2025 - Present")
     const startDateStr = exp.period.split(" - ")[0];
-    const date = new Date(startDateStr);
+    const date = parseDateString(startDateStr);
     
     if (!isNaN(date.getTime()) && date < earliest) {
       earliest = date;
