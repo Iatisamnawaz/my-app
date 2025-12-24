@@ -189,7 +189,7 @@ export const educationData = [
     id: 1,
     degree: "Bsc Computer Science",
     school: "Goldsmiths, University of London",
-    year: "Nox 2021 - 2024",
+    year: "2021 - 2024",
     grade: "First Class Honours",
     gradeLabel: "Grade",
     highlights: ["Artificial Intelligence", "Machine Learning", "Web Development"]
