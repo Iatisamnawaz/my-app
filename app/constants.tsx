@@ -36,6 +36,7 @@ export const techImages = [
     { src: '/tech/Flask.png', alt: 'Flask' },
     { src: '/tech/chromadb.svg', alt: 'ChromaDB' },
     { src: '/tech/langchain-color.svg', alt: 'LangChain' },
+    { src: '/tech/ollama.svg', alt: 'Ollama' },
 ];
 
 // =========================================
