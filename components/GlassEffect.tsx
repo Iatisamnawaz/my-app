@@ -223,20 +223,21 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
         if (!backdropFilterSupported) {
           return {
             ...baseStyles,
-            background: 'rgba(0, 0, 0, 0.4)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            boxShadow: `inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
-                        inset 0 -1px 0 0 rgba(255, 255, 255, 0.1)`
+            background: 'rgba(0, 0, 0, 0.6)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            boxShadow: `inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+                        inset 0 -1px 0 0 rgba(255, 255, 255, 0.05)`
           };
         } else {
           return {
             ...baseStyles,
-            background: 'rgba(255, 255, 255, 0.1)',
-            backdropFilter: 'blur(12px) saturate(1.8) brightness(1.2)',
-            WebkitBackdropFilter: 'blur(12px) saturate(1.8) brightness(1.2)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            boxShadow: `inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
-                        inset 0 -1px 0 0 rgba(255, 255, 255, 0.1)`
+            background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%)',
+            backdropFilter: `blur(${blur + 4}px) saturate(1.8) brightness(1.1)`,
+            WebkitBackdropFilter: `blur(${blur + 4}px) saturate(1.8) brightness(1.1)`,
+            border: '1px solid rgba(255, 255, 255, 0.15)',
+            boxShadow: `inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+                        inset 0 -1px 0 0 rgba(255, 255, 255, 0.1),
+                        0 4px 24px -1px rgba(0, 0, 0, 0.1)`
           };
         }
       } else {
