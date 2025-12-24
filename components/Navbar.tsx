@@ -85,8 +85,8 @@ export default function Navbar() {
                 </div>
 
                 {/* Mobile: Unified Glass Pill (Stats + Menu) */}
-                <div className="md:hidden fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-                    <div className="pointer-events-auto">
+                <div className="md:hidden fixed top-[2vh] left-0 right-0 z-50 flex justify-center px-[4vw] pointer-events-none">
+                    <div className="pointer-events-auto max-w-[90vw]">
                         <GlassSurface
                             width="auto"
                             height="auto"
@@ -95,7 +95,7 @@ export default function Navbar() {
                             brightness={70}
                             opacity={0.6}
                             blur={12}
-                            className="py-2 pl-5 pr-2"
+                            className="py-[1vh] pl-[4vw] pr-[2vw]"
                         >
                             <div className="flex items-center gap-4">
                                 <CareerTimer simple />

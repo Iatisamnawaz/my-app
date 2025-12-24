@@ -13,9 +13,9 @@ const handleAnimationComplete = () => {
 
 export default function Hero() {
     return (
-        <section id="hero" className="min-h-screen flex items-center justify-center p-5 pt-0 md:pt-5 relative">
-            <div className="container mx-auto px-4 mt-0 md:mt-20 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6 items-center">
-                <div className="flex flex-col items-start justify-center order-2 md:order-1">
+        <section id="hero" className="min-h-[100svh] flex flex-col items-center justify-center p-5 pt-20 pb-8 md:py-0 relative overflow-hidden">
+            <div className="container mx-auto px-4 flex flex-col md:grid md:grid-cols-2 h-full justify-evenly md:justify-center gap-6 md:gap-12 items-center">
+                <div className="flex flex-col items-start justify-center order-2 md:order-1 relative z-20 text-left w-full">
                     <SplitText
                         text={heroData.heading}
                         className="text-4xl sm:text-5xl md:text-7xl font-bold text-left leading-tight"
@@ -30,7 +30,7 @@ export default function Hero() {
                         textAlign="left"
                         onLetterAnimationComplete={handleAnimationComplete}
                     />
-                    <p className="mt-6 text-neutral-400 text-lg md:text-xl max-w-lg leading-relaxed">
+                    <p className="mt-6 text-neutral-400 text-[clamp(1rem,4vw,1.25rem)] md:text-xl max-w-lg leading-relaxed">
                         {heroData.subheading}
                     </p>
                     
@@ -40,9 +40,10 @@ export default function Hero() {
                     </div>
                 </div>
                 
-                <div className="flex justify-center md:justify-end order-1 md:order-2">
-                    <ProfileCard
-                        name={heroData.name}
+                <div className="flex justify-center items-center order-1 md:order-2 w-full">
+                    <div className="w-[65vw] max-w-[280px] md:w-full md:max-w-md">
+                        <ProfileCard
+                            name={heroData.name}
                         title={heroData.title}
                         handle={heroData.handle}
                         status={heroData.status}
@@ -58,21 +59,22 @@ export default function Hero() {
                             }
                         }}
                     />
+                    </div>
                 </div>
             </div>
 
-            {/* Scroll Indicator */}
+            {/* Scroll Indicator - Hidden on Mobile */}
             <motion.div 
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+                className="hidden md:flex absolute bottom-2 md:bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 z-10 pointer-events-none"
             >
-                <span className="text-xs text-white/40 uppercase tracking-widest">Scroll</span>
+                <span className="text-[10px] text-white/40 uppercase tracking-widest">Scroll</span>
                 <motion.div 
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-px h-12 bg-gradient-to-b from-white/0 via-white/40 to-white/0"
+                    className="w-px h-8 md:h-12 bg-gradient-to-b from-white/0 via-white/40 to-white/0"
                 />
             </motion.div>
         </section>
