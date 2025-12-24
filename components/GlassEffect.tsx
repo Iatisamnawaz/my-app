@@ -164,16 +164,17 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
 
   const supportsSVGFilters = React.useCallback(() => {
     if (typeof window === 'undefined') return false;
-    const isWebkit = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
-    const isFirefox = /Firefox/.test(navigator.userAgent);
 
-    if (isWebkit || isFirefox) {
-      return false;
-    }
-
+    // Try standard property
     const div = document.createElement('div');
     div.style.backdropFilter = `url(#${filterId})`;
-    return div.style.backdropFilter !== '';
+    if (div.style.backdropFilter !== '') return true;
+
+    // Try webkit prefix
+    // @ts-ignore
+    div.style.webkitBackdropFilter = `url(#${filterId})`;
+    // @ts-ignore
+    return div.style.webkitBackdropFilter !== '';
   }, [filterId]);
 
   const [svgSupported, setSvgSupported] = useState(false);
@@ -200,6 +201,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
         ...baseStyles,
         background: isDarkMode ? `hsl(0 0% 0% / ${backgroundOpacity})` : `hsl(0 0% 100% / ${backgroundOpacity})`,
         backdropFilter: `url(#${filterId}) saturate(${saturation})`,
+        WebkitBackdropFilter: `url(#${filterId}) saturate(${saturation})`,
         boxShadow: isDarkMode
           ? `0 0 2px 1px color-mix(in oklch, white, transparent 65%) inset,
              0 0 10px 4px color-mix(in oklch, white, transparent 85%) inset,
