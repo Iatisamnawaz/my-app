@@ -18,6 +18,8 @@ export interface GooeyNavProps {
   initialActiveIndex?: number;
 }
 
+const noise = (n = 1) => n / 2 - Math.random() * n;
+
 const GooeyNav: React.FC<GooeyNavProps> = ({
   items,
   animationTime = 600,
@@ -35,15 +37,14 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   const textRef = useRef<HTMLSpanElement>(null);
   const [activeIndex, setActiveIndex] = useState<number>(initialActiveIndex);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const makeParticles = (element: HTMLElement) => {
-    const noise = (n = 1) => n / 2 - Math.random() * n;
+   
+  const makeParticles = React.useCallback((element: HTMLElement) => {
     const getXY = (distance: number, pointIndex: number, totalPoints: number): [number, number] => {
         const angle = ((360 + noise(8)) / totalPoints) * pointIndex * (Math.PI / 180);
         return [distance * Math.cos(angle), distance * Math.sin(angle)];
     };
     const createParticle = (i: number, t: number, d: [number, number], r: number) => {
-        let rotate = noise(r / 10);
+        const rotate = noise(r / 10);
         return {
         start: getXY(d[0], particleCount - i, particleCount),
         end: getXY(d[1] + noise(7), particleCount - i, particleCount),
@@ -87,7 +88,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         }, t);
       }, 30);
     }
-  };
+  }, [animationTime, colors, particleCount, particleDistances, particleR, timeVariance]);
   const updateEffectPosition = (element: HTMLElement) => {
     if (!containerRef.current || !filterRef.current || !textRef.current || !glassRef.current) return;
     const containerRect = containerRef.current.getBoundingClientRect();

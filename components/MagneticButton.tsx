@@ -4,14 +4,12 @@ import React, { useRef } from 'react';
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 import Link from 'next/link';
 
-interface MagneticButtonProps {
+interface MagneticButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     children: React.ReactNode;
     href?: string;
     outline?: boolean;
     className?: string;
     onClick?: () => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [key: string]: any;
 }
 
 export default function MagneticButton({ 
@@ -22,7 +20,7 @@ export default function MagneticButton({
     onClick,
     ...props
 }: MagneticButtonProps) {
-    const ref = useRef<HTMLDivElement>(null);
+    const ref = useRef<HTMLElement>(null);
     
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -68,12 +66,12 @@ export default function MagneticButton({
     if (onClick || !href) {
         return (
              <div 
-                ref={ref}
+                ref={ref as React.RefObject<HTMLDivElement>}
                 onMouseMove={handleMouse}
                 onMouseLeave={reset}
                 onClick={onClick}
                 className="cursor-pointer inline-block"
-                {...props}
+                {...props as React.HTMLAttributes<HTMLDivElement>}
             >
                 {content}
             </div>
@@ -83,8 +81,7 @@ export default function MagneticButton({
     return (
         <Link 
             href={href} 
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            ref={ref as any}
+            ref={ref as React.RefObject<HTMLAnchorElement>}
             onMouseMove={handleMouse}
             onMouseLeave={reset}
             className="cursor-pointer inline-block"

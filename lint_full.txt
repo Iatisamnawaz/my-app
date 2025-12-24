@@ -17,17 +17,14 @@
   5:53  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
 
 /Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/GlassEffect.tsx
-  135:6  warning  React Hook useEffect has a missing dependency: 'updateDisplacementMap'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
-  165:6  warning  React Hook useEffect has a missing dependency: 'updateDisplacementMap'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
-  179:6  warning  React Hook useEffect has a missing dependency: 'updateDisplacementMap'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
-  183:6  warning  React Hook useEffect has a missing dependency: 'updateDisplacementMap'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
-  208:5  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
-  210:5  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
-  212:6  warning  React Hook useEffect has a missing dependency: 'supportsSVGFilters'. Either include it or remove the dependency array     react-hooks/exhaustive-deps
+  185:5  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/set-state-in-effect')
+  187:6  warning  React Hook useEffect has a missing dependency: 'supportsSVGFilters'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 /Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/GooeyNav.tsx
-  38:3   warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
-  46:13  error    'rotate' is never reassigned. Use 'const' instead                                               prefer-const
+  53:9  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/purity')
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/MagneticButton.tsx
+  89:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
 
 /Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/SplitText.tsx
    67:18  warning  '_' is defined but never used  @typescript-eslint/no-unused-vars
@@ -35,8 +32,6 @@
 
 /Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/TechDome.tsx
   373:54  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
-  425:16  error    'vMagX' is never reassigned. Use 'const' instead                                                                                                                                                                                                                                         prefer-const
-  425:23  error    'vMagY' is never reassigned. Use 'const' instead                                                                                                                                                                                                                                         prefer-const
   478:22  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
   555:24  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
   641:18  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
@@ -52,7 +47,7 @@
   843:43  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
   877:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
 
-✖ 35 problems (17 errors, 18 warnings)
-  3 errors and 3 warnings potentially fixable with the `--fix` option.
+✖ 28 problems (15 errors, 13 warnings)
+  0 errors and 2 warnings potentially fixable with the `--fix` option.
 
  ELIFECYCLE  Command failed with exit code 1.
