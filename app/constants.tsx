@@ -32,6 +32,10 @@ export const techImages = [
     { src: '/tech/reactjs.png', alt: 'React' },
     { src: '/tech/tailwind.png', alt: 'Tailwind CSS' },
     { src: '/tech/tensorflow.png', alt: 'TensorFlow' },
+    { src: '/tech/FastAPI.png', alt: 'FastAPI' },
+    { src: '/tech/Flask.png', alt: 'Flask' },
+    { src: '/tech/chromadb.svg', alt: 'ChromaDB' },
+    { src: '/tech/langchain-color.svg', alt: 'LangChain' },
 ];
 
 // =========================================
