@@ -1,10 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { gsap } from 'gsap';
 import BlurText from './BlurText';
-import DomeGallery from './TechDome';
 import { techImages } from '@/app/constants';
+
+const DomeGallery = dynamic(() => import('./TechDome'), {
+  ssr: false,
+  loading: () => <div className="w-full h-full flex items-center justify-center text-white/20">Loading 3D View...</div>
+});
 
 const handleAnimationComplete = () => {
     console.log('Animation completed!');
@@ -61,7 +67,13 @@ export default function Overview() {
                         {techImages.map((tech, index) => (
                             <div key={index} className="flex flex-col items-center justify-center gap-3">
                                 <div className="w-16 h-16 relative bg-white/5 rounded-2xl p-3 border border-white/10 flex items-center justify-center backdrop-blur-sm">
-                                    <img src={tech.src} alt={tech.alt} className="w-full h-full object-contain" />
+                                    <Image 
+                                        src={tech.src} 
+                                        alt={tech.alt || 'Tech icon'} 
+                                        fill
+                                        className="object-contain p-3" 
+                                        sizes="64px"
+                                    />
                                 </div>
                                 <span className="text-xs text-white/60 font-medium text-center">{tech.alt}</span>
                             </div>

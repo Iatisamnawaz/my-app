@@ -1,0 +1,502 @@
+PageSpeed Insights logo
+PageSpeed Insights
+Report from Dec 24, 2025, 8:55:20 PM
+https://iatisam.netlify.app/
+Enter a valid URL
+
+
+smartphone
+Mobile
+
+computer
+Desktop
+
+Discover what your real users are experiencing
+No Data
+
+Diagnose performance issues
+85
+Performance
+92
+Accessibility
+96
+Best Practices
+100
+SEO
+85
+FCP
++10
+LCP
++14
+TBT
++30
+CLS
++25
+SI
++6
+Performance
+Values are estimated and may vary. The performance score is calculated directly from these metrics.See calculator.
+0–49
+50–89
+90–100
+Final Screenshot
+
+Metrics
+Expand view
+First Contentful Paint
+1.0 s
+Largest Contentful Paint
+3.8 s
+Total Blocking Time
+50 ms
+Cumulative Layout Shift
+0.01
+Speed Index
+5.4 s
+Captured at Dec 24, 2025, 8:55 PM GMT+5
+Emulated Moto G Power with Lighthouse 13.0.1
+Single page session
+Initial page load
+Slow 4G throttling
+Using HeadlessChromium 137.0.7151.119 with lr
+View Treemap
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Show audits relevant to:
+
+All
+
+FCP
+
+LCP
+
+TBT
+
+CLS
+Insights
+Render blocking requests Est savings of 400 ms
+Requests are blocking the page's initial render, which may delay LCP. Deferring or inlining can move these network requests out of the critical path.LCPFCPUnscored
+URL
+Transfer Size
+Duration
+netlify.app 1st party
+12.3 KiB	660 ms
+…chunks/99417eb4010e8fe6.css(iatisam.netlify.app)
+2.7 KiB
+480 ms
+…chunks/41132aa6268d5463.css(iatisam.netlify.app)
+9.6 KiB
+180 ms
+Forced reflow
+A forced reflow occurs when JavaScript queries geometric properties (such as offsetWidth) after styles have been invalidated by a change to the DOM state. This can result in poor performance. Learn more about forced reflows and possible mitigations.Unscored
+Top function call
+Total reflow time
+…chunks/e50b89b3291df158.js:2:8066(iatisam.netlify.app)
+71 ms
+Source
+Total reflow time
+…chunks/c6a001d8c44ad1f0.js:105:5878(iatisam.netlify.app)
+2 ms
+…chunks/aee85c1fb1421af3.js:273:708(iatisam.netlify.app)
+1 ms
+…chunks/aee85c1fb1421af3.js:1:1697(iatisam.netlify.app)
+1 ms
+…chunks/c6a001d8c44ad1f0.js:1:132942(iatisam.netlify.app)
+0 ms
+…chunks/c6a001d8c44ad1f0.js:1:131267(iatisam.netlify.app)
+2 ms
+…chunks/c6a001d8c44ad1f0.js:1:71396(iatisam.netlify.app)
+3 ms
+…chunks/c6a001d8c44ad1f0.js:1:53883(iatisam.netlify.app)
+50 ms
+…chunks/c6a001d8c44ad1f0.js:1:130407(iatisam.netlify.app)
+2 ms
+…chunks/c6a001d8c44ad1f0.js:1:121467(iatisam.netlify.app)
+16 ms
+[unattributed]
+2 ms
+…chunks/c6a001d8c44ad1f0.js:105:2380(iatisam.netlify.app)
+2 ms
+LCP request discovery
+Optimize LCP by making the LCP image discoverable from the HTML immediately, and avoiding lazy-loadingLCPUnscored
+lazy load not applied
+fetchpriority=high should be applied
+Request is discoverable in initial document
+Iatisam Nawaz avatar
+<img class="avatar" src="/pfp.png" alt="Iatisam Nawaz avatar" loading="lazy">
+Network dependency tree
+Avoid chaining critical requests by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.LCPUnscored
+Maximum critical path latency: 1,018 ms
+Initial Navigation
+https://iatisam.netlify.app - 499 ms, 15.74 KiB
+…chunks/41132aa6268d5463.css(iatisam.netlify.app) - 931 ms, 9.59 KiB
+…chunks/99417eb4010e8fe6.css(iatisam.netlify.app) - 1,018 ms, 2.73 KiB
+Preconnected origins
+preconnect hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.
+no origins were preconnected
+Preconnect candidates
+Add preconnect hints to your most important origins, but try to use no more than 4.
+No additional origins are good candidates for preconnecting
+Improve image delivery Est savings of 3,054 KiB
+Reducing the download time of images can improve the perceived load time of the page and LCP. Learn more about optimizing image sizeLCPFCPUnscored
+URL
+Resource Size
+Est Savings
+netlify.app 1st party
+3,455.1 KiB	3,053.7 KiB
+/projects/movieapp.png(iatisam.netlify.app)
+1,031.6 KiB
+952.9 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+933.7 KiB
+This image file is larger than it needs to be (836x720) for its displayed dimensions (927x522). Use responsive images to reduce the image download size.
+202.6 KiB
+C++
+<img src="/tech/cplus.png" draggable="false" alt="C++" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/cplus.png(iatisam.netlify.app)
+340.3 KiB
+337.7 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+169.7 KiB
+This image file is larger than it needs to be (1024x1024) for its displayed dimensions (128x128). Use responsive images to reduce the image download size.
+335.0 KiB
+Iatisam Nawaz avatar
+<img class="avatar" src="/pfp.png" alt="Iatisam Nawaz avatar" loading="lazy">
+/pfp.png(iatisam.netlify.app)
+355.1 KiB
+318.0 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+250.9 KiB
+This image file is larger than it needs to be (800x800) for its displayed dimensions (477x477). Use responsive images to reduce the image download size.
+228.6 KiB
+/projects/readnation.png(iatisam.netlify.app)
+373.7 KiB
+295.0 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+275.8 KiB
+This image file is larger than it needs to be (836x720) for its displayed dimensions (927x522). Use responsive images to reduce the image download size.
+73.4 KiB
+Figma
+<img src="/tech/figma.png" draggable="false" alt="Figma" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/figma.png(iatisam.netlify.app)
+283.6 KiB
+280.9 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+113.0 KiB
+This image file is larger than it needs to be (1024x1024) for its displayed dimensions (128x128). Use responsive images to reduce the image download size.
+279.2 KiB
+/projects/dataAnalysis.png(iatisam.netlify.app)
+316.0 KiB
+250.7 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+182.8 KiB
+This image file is larger than it needs to be (974x840) for its displayed dimensions (769x522). Use responsive images to reduce the image download size.
+161.1 KiB
+/projects/brainlink.png(iatisam.netlify.app)
+314.3 KiB
+235.6 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+216.4 KiB
+This image file is larger than it needs to be (836x720) for its displayed dimensions (927x522). Use responsive images to reduce the image download size.
+61.7 KiB
+TensorFlow
+<img src="/tech/tensorflow.png" draggable="false" alt="TensorFlow" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/tensorflow.png(iatisam.netlify.app)
+55.4 KiB
+54.7 KiB
+This image file is larger than it needs to be (1200x1186) for its displayed dimensions (128x137). Use responsive images to reduce the image download size.
+54.7 KiB
+MySQL
+<img src="/tech/mysql.png" draggable="false" alt="MySQL" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/mysql.png(iatisam.netlify.app)
+54.0 KiB
+51.4 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+19.1 KiB
+This image file is larger than it needs to be (463x463) for its displayed dimensions (128x128). Use responsive images to reduce the image download size.
+49.9 KiB
+CSS
+<img src="/tech/css.png" draggable="false" alt="CSS" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/css.png(iatisam.netlify.app)
+51.2 KiB
+50.8 KiB
+This image file is larger than it needs to be (1400x1400) for its displayed dimensions (128x128). Use responsive images to reduce the image download size.
+50.8 KiB
+/projects/ml-1.png(iatisam.netlify.app)
+93.2 KiB
+47.5 KiB
+This image file is larger than it needs to be (974x840) for its displayed dimensions (769x522). Use responsive images to reduce the image download size.
+47.5 KiB
+Docker
+<img src="/tech/docker.png" draggable="false" alt="Docker" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/docker.png(iatisam.netlify.app)
+45.2 KiB
+43.8 KiB
+This image file is larger than it needs to be (887x895) for its displayed dimensions (186x128). Use responsive images to reduce the image download size.
+43.8 KiB
+HTML
+<img src="/tech/html.png" draggable="false" alt="HTML" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/html.png(iatisam.netlify.app)
+31.0 KiB
+30.4 KiB
+This image file is larger than it needs to be (1000x1000) for its displayed dimensions (128x128). Use responsive images to reduce the image download size.
+30.4 KiB
+React
+<img src="/tech/reactjs.png" draggable="false" alt="React" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/reactjs.png(iatisam.netlify.app)
+29.4 KiB
+27.5 KiB
+This image file is larger than it needs to be (500x500) for its displayed dimensions (128x128). Use responsive images to reduce the image download size.
+27.5 KiB
+Django
+<img src="/tech/django.png" draggable="false" alt="Django" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/django.png(iatisam.netlify.app)
+23.9 KiB
+22.6 KiB
+This image file is larger than it needs to be (550x550) for its displayed dimensions (128x128). Use responsive images to reduce the image download size.
+22.6 KiB
+Python
+<img src="/tech/python.png" draggable="false" alt="Python" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/python.png(iatisam.netlify.app)
+22.9 KiB
+21.7 KiB
+This image file is larger than it needs to be (565x565) for its displayed dimensions (128x128). Use responsive images to reduce the image download size.
+21.7 KiB
+Node.js
+<img src="/tech/nodejs.png" draggable="false" alt="Node.js" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/nodejs.png(iatisam.netlify.app)
+14.1 KiB
+13.2 KiB
+This image file is larger than it needs to be (500x500) for its displayed dimensions (128x128). Use responsive images to reduce the image download size.
+13.2 KiB
+JavaScript
+<img src="/tech/javascript.png" draggable="false" alt="JavaScript" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/javascript.png(iatisam.netlify.app)
+10.2 KiB
+9.9 KiB
+This image file is larger than it needs to be (800x800) for its displayed dimensions (128x128). Use responsive images to reduce the image download size.
+9.9 KiB
+Git
+<img src="/tech/git.png" draggable="false" alt="Git" class="w-full h-full object-cover pointer-events-none" style="backface-visibility:hidden;filter:var(--image-filter, none)">
+/tech/git.png(iatisam.netlify.app)
+10.1 KiB
+9.4 KiB
+This image file is larger than it needs to be (512x512) for its displayed dimensions (128x128). Use responsive images to reduce the image download size.
+9.4 KiB
+Legacy JavaScript Est savings of 13 KiB
+Polyfills and transforms enable older browsers to use new JavaScript features. However, many aren't necessary for modern browsers. Consider modifying your JavaScript build process to not transpile Baseline features, unless you know you must support older browsers. Learn why most sites can deploy ES6+ code without transpilingLCPFCPUnscored
+URL
+Wasted bytes
+netlify.app 1st party
+12.9 KiB
+…chunks/e50b89b3291df158.js(iatisam.netlify.app)
+12.9 KiB
+…chunks/e50b89b3291df158.js:1:6068(iatisam.netlify.app)
+Array.prototype.at
+…chunks/e50b89b3291df158.js:1:5456(iatisam.netlify.app)
+Array.prototype.flat
+…chunks/e50b89b3291df158.js:1:5569(iatisam.netlify.app)
+Array.prototype.flatMap
+…chunks/e50b89b3291df158.js:1:5945(iatisam.netlify.app)
+Object.fromEntries
+…chunks/e50b89b3291df158.js:1:6203(iatisam.netlify.app)
+Object.hasOwn
+…chunks/e50b89b3291df158.js:1:5198(iatisam.netlify.app)
+String.prototype.trimEnd
+…chunks/e50b89b3291df158.js:1:5113(iatisam.netlify.app)
+String.prototype.trimStart
+Layout shift culprits
+Layout shifts occur when elements move absent any user interaction. Investigate the causes of layout shifts, such as elements being added, removed, or their fonts changing as the page loads.CLSUnscored
+Element
+Layout shift score
+Total
+0.010
+4y 6m 26d 23h 55m 41s
+<div class="relative flex items-center justify-center overflow-hidden transition-opaci…" style="width: auto; height: auto; border-radius: 50px; --glass-frost: 0;">
+0.010
+Optimize DOM size
+A large DOM can increase the duration of style calculations and layout reflows, impacting page responsiveness. A large DOM will also increase memory usage. Learn how to avoid an excessive DOM size.Unscored
+Statistic
+Element
+Value
+Total elements
+1,256
+DOM depth
+15
+Most children
+C++
+<div class="sphere" style="transform: translateZ(calc(var(--radius) * -1)) rotateX(0deg) rotateY(0deg…;">
+175
+LCP breakdown
+Each subpart has specific improvement strategies. Ideally, most of the LCP time should be spent on loading the resources, not within delays.LCPUnscored
+Subpart
+Duration
+Time to first byte
+0 ms
+Resource load delay
+1,140 ms
+Resource load duration
+170 ms
+Element render delay
+50 ms
+Iatisam Nawaz avatar
+<img class="avatar" src="/pfp.png" alt="Iatisam Nawaz avatar" loading="lazy">
+These insights are also available in the Chrome DevTools Performance Panel - record a trace to view more detailed information.
+Diagnostics
+Reduce unused JavaScript Est savings of 52 KiB
+Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. Learn how to reduce unused JavaScript.LCPFCPUnscored
+URL
+Transfer Size
+Est Savings
+netlify.app 1st party
+152.4 KiB	52.0 KiB
+…chunks/c6a001d8c44ad1f0.js(iatisam.netlify.app)
+86.7 KiB
+28.2 KiB
+…chunks/e50b89b3291df158.js(iatisam.netlify.app)
+65.7 KiB
+23.9 KiB
+Minimize main-thread work 5.1 s
+Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. Learn how to minimize main-thread workTBTUnscored
+Category
+Time Spent
+Other
+3,569 ms
+Script Evaluation
+647 ms
+Style & Layout
+633 ms
+Rendering
+176 ms
+Script Parsing & Compilation
+67 ms
+Parse HTML & CSS
+23 ms
+Garbage Collection
+11 ms
+Avoid enormous network payloads Total size was 3,893 KiB
+Large network payloads cost users real money and are highly correlated with long load times. Learn how to reduce payload sizes.Unscored
+URL
+Transfer Size
+netlify.app 1st party
+3,264.4 KiB
+/projects/movieapp.png(iatisam.netlify.app)
+1,032.0 KiB
+/projects/readnation.png(iatisam.netlify.app)
+374.1 KiB
+/pfp.png(iatisam.netlify.app)
+355.5 KiB
+/tech/cplus.png(iatisam.netlify.app)
+340.7 KiB
+/projects/dataAnalysis.png(iatisam.netlify.app)
+316.4 KiB
+/projects/brainlink.png(iatisam.netlify.app)
+314.7 KiB
+/tech/figma.png(iatisam.netlify.app)
+284.0 KiB
+/projects/ml-1.png(iatisam.netlify.app)
+93.6 KiB
+…chunks/c6a001d8c44ad1f0.js(iatisam.netlify.app)
+87.2 KiB
+…chunks/e50b89b3291df158.js(iatisam.netlify.app)
+66.2 KiB
+Avoid long main-thread tasks 4 long tasks found
+Lists the longest tasks on the main thread, useful for identifying worst contributors to input delay. Learn how to avoid long main-thread tasksTBTUnscored
+URL
+Start Time
+Duration
+netlify.app 1st party
+322 ms
+…chunks/c6a001d8c44ad1f0.js(iatisam.netlify.app)
+7,608 ms
+95 ms
+…chunks/e50b89b3291df158.js(iatisam.netlify.app)
+7,703 ms
+80 ms
+…chunks/e50b89b3291df158.js(iatisam.netlify.app)
+6,323 ms
+74 ms
+https://iatisam.netlify.app
+942 ms
+73 ms
+Avoid non-composited animations 2 animated elements found
+Animations which are not composited can be janky and increase CLS. Learn how to avoid non-composited animationsCLSUnscored
+Element
+Name
+div.pc-card-shell > section.pc-card > div.pc-inside > div.pc-shine
+<div class="pc-shine">
+Unsupported CSS Properties: background-position-x, background-position-y
+holo-bg
+Contact Me Iatisam Nawaz Software Engineer
+<section class="pc-card">
+Custom CSS properties cannot be animated on the compositor: --bgrotate
+glow-bg
+More information about the performance of your application. These numbers don't directly affect the Performance score.
+Passed audits (13)
+Show
+92
+Accessibility
+These checks highlight opportunities to improve the accessibility of your web app. Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so manual testing is also encouraged.
+ARIA
+Elements use prohibited ARIA attributes
+These are opportunities to improve the usage of ARIA in your application which may enhance the experience for users of assistive technology, like a screen reader.
+Names and labels
+Links do not have a discernible name
+These are opportunities to improve the semantics of the controls in your application. This may enhance the experience for users of assistive technology, like a screen reader.
+Additional items to manually check (10)
+Show
+These items address areas which an automated testing tool cannot cover. Learn more in our guide on conducting an accessibility review.
+Passed audits (21)
+Show
+Not applicable (37)
+Show
+96
+Best Practices
+General
+Browser errors were logged to the console
+Trust and Safety
+Ensure CSP is effective against XSS attacks
+Ensure proper origin isolation with COOP
+Mitigate clickjacking with XFO or CSP
+Mitigate DOM-based XSS with Trusted Types
+Passed audits (12)
+Show
+Not applicable (3)
+Show
+100
+SEO
+These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on Core Web Vitals. Learn more about Google Search Essentials.
+Additional items to manually check (1)
+Hide
+Structured data is valid
+Run these additional validators on your site to check additional SEO best practices.
+Passed audits (8)
+Show
+Not applicable (2)
+Show
+More on PageSpeed Insights
+What's new
+Documentation
+Learn about Web Performance
+Ask questions on Stack Overflow
+Mailing list
+Related Content
+Updates
+Web Fundamentals
+Case Studies
+Podcasts
+Connect
+Twitter
+Youtube
+Google Developers Logo
+Chrome
+Firebase
+All products
+Terms and Privacy Policy
+For details, see the Google Developers Site Policies.

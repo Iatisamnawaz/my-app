@@ -1,9 +1,8 @@
 
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
+import Image from 'next/image';
 import '../app/ProfileCard.css';
 
 interface ProfileCardProps {
@@ -343,11 +342,13 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
             <div className="pc-shine" />
             <div className="pc-glare" />
             <div className="pc-content pc-avatar-content">
-              <img
+              <Image
                 className="avatar"
                 src={avatarUrl}
                 alt={`${name || 'User'} avatar`}
-                loading="lazy"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
                 onError={e => {
                   const t = e.target as HTMLImageElement;
                   t.style.display = 'none';

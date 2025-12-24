@@ -1,8 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring, useMotionTemplate, MotionValue } from "framer-motion";
+import Image from 'next/image';
 import { ArrowUpRight, Github } from "lucide-react";
 import MagneticButton from "./MagneticButton";
 import { projects } from "@/app/constants";
@@ -77,10 +77,12 @@ export default function Projects() {
               <div key={project.id} className="group flex flex-col gap-6">
                 {/* Image Card */}
                 <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-white/5">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover"
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-black/10" />
                 </div>
@@ -344,10 +346,12 @@ function GridItem({ project, index }: { project: Project, index: number }) {
         transition={{ delay: index * 0.1 }}
         className="group relative h-[300px] rounded-2xl overflow-hidden cursor-pointer border border-white/10"
       >
-        <img 
+        <Image 
           src={project.image} 
           alt={project.title} 
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
         <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-500" />
         
@@ -373,6 +377,9 @@ function GridItem({ project, index }: { project: Project, index: number }) {
     </Link>
   );
 }
+
+// Create a Motion component for Next.js Image
+const MotionImage = motion(Image);
 
 function ProjectItem({ 
   project, 
@@ -512,11 +519,13 @@ function ProjectItem({
                  }}
                  className="relative w-full md:w-[95%] aspect-video overflow-hidden rounded-2xl shadow-2xl"
                >
-                 <motion.img 
+                 <MotionImage 
                    src={project.image} 
                    alt={project.title}
+                   fill
                    style={{ scale: isMobile ? 1 : 1.2, x: isMobile ? 0 : xOffset }}
-                   className="w-full h-full object-cover"
+                   className="object-cover"
+                   sizes="80vw"
                  />
                  <div className="absolute inset-0 bg-black/20" />
                </motion.div>

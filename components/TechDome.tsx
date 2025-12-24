@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useMemo, useRef, useCallback } from 'react';
+import Image from 'next/image';
 import { useGesture } from '@use-gesture/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -874,11 +875,13 @@ export default function DomeGallery({
                       backfaceVisibility: 'hidden'
                     }}
                   >
-                    <img
+                    <Image
                       src={it.src}
+                      alt={it.alt || ''}
+                      fill
                       draggable={false}
-                      alt={it.alt}
-                      className="w-full h-full object-cover pointer-events-none"
+                      className="object-cover pointer-events-none"
+                      sizes="(max-width: 768px) 100px, 200px"
                       style={{
                         backfaceVisibility: 'hidden',
                         filter: `var(--image-filter, ${grayscale ? 'grayscale(1)' : 'none'})`
