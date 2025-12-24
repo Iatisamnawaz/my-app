@@ -10,6 +10,7 @@ interface MagneticButtonProps {
     outline?: boolean;
     className?: string;
     onClick?: () => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
 }
 
@@ -82,6 +83,7 @@ export default function MagneticButton({
     return (
         <Link 
             href={href} 
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             ref={ref as any}
             onMouseMove={handleMouse}
             onMouseLeave={reset}

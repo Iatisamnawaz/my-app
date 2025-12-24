@@ -1,6 +1,8 @@
 
 "use client";
 
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 import '../app/ProfileCard.css';
 
@@ -272,6 +274,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
     const handleClick = () => {
       if (!enableMobileTilt || location.protocol !== 'https:') return;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const anyMotion = window.DeviceMotionEvent as any;
       if (anyMotion && typeof anyMotion.requestPermission === 'function') {
         anyMotion

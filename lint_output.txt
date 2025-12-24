@@ -1,0 +1,134 @@
+
+> my-app@0.1.0 lint
+> eslint
+
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/app/constants.tsx
+  1:28  warning  'Mail' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/app/fonts.ts
+  1:10  warning  'Geist' is defined but never used    @typescript-eslint/no-unused-vars
+  1:29  warning  'Inter' is defined but never used    @typescript-eslint/no-unused-vars
+  1:36  warning  'Roboto' is defined but never used   @typescript-eslint/no-unused-vars
+  1:44  warning  'Poppins' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/AuroraBackground.tsx
+  142:9  error    'program' is never reassigned. Use 'const' instead                                                                           prefer-const
+  208:6  warning  React Hook useEffect has missing dependencies: 'blend' and 'colorStops'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/Experience.tsx
+  5:10  warning  'Calendar' is defined but never used      @typescript-eslint/no-unused-vars
+  5:53  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/GlassEffect.tsx
+  135:6  warning  React Hook useEffect has a missing dependency: 'updateDisplacementMap'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-hooks/exhaustive-deps
+  165:6  warning  React Hook useEffect has a missing dependency: 'updateDisplacementMap'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-hooks/exhaustive-deps
+  179:6  warning  React Hook useEffect has a missing dependency: 'updateDisplacementMap'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-hooks/exhaustive-deps
+  183:6  warning  React Hook useEffect has a missing dependency: 'updateDisplacementMap'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-hooks/exhaustive-deps
+  208:5  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/GlassEffect.tsx:208:5
+  206 |
+  207 |   useEffect(() => {
+> 208 |     setSvgSupported(supportsSVGFilters());
+      |     ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  209 |     setBackdropFilterSupported(supportsBackdropFilter());
+  210 |   }, []);
+  211 |  react-hooks/set-state-in-effect
+  210:6  warning  React Hook useEffect has a missing dependency: 'supportsSVGFilters'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             react-hooks/exhaustive-deps
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/GooeyNav.tsx
+  38:36  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/GooeyNav.tsx:38:36
+  36 |   const [activeIndex, setActiveIndex] = useState<number>(initialActiveIndex);
+  37 |
+> 38 |   const noise = (n = 1) => n / 2 - Math.random() * n;
+     |                                    ^^^^^^^^^^^^^ Cannot call impure function
+  39 |   const getXY = (distance: number, pointIndex: number, totalPoints: number): [number, number] => {
+  40 |     const angle = ((360 + noise(8)) / totalPoints) * pointIndex * (Math.PI / 180);
+  41 |     return [distance * Math.cos(angle), distance * Math.sin(angle)];  react-hooks/purity
+  44:9   error  'rotate' is never reassigned. Use 'const' instead                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        prefer-const
+  50:32  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/GooeyNav.tsx:50:32
+  48 |       time: t,
+  49 |       scale: 1 + noise(0.2),
+> 50 |       color: colors[Math.floor(Math.random() * colors.length)],
+     |                                ^^^^^^^^^^^^^ Cannot call impure function
+  51 |       rotate: rotate > 0 ? (rotate + r / 20) * 10 : (rotate - r / 20) * 10
+  52 |     };
+  53 |   };                                                                                                                                                                                                  react-hooks/purity
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/MagneticButton.tsx
+  13:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  85:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/MyInfoSection.tsx
+    5:32  warning  'Download' is defined but never used  @typescript-eslint/no-unused-vars
+  206:45  warning  'i' is defined but never used         @typescript-eslint/no-unused-vars
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/ProfileCard.tsx
+   56:3   warning  'miniAvatarUrl' is defined but never used                                                                                                                                                                                                                                                @typescript-eslint/no-unused-vars
+   59:3   warning  'handle' is assigned a value but never used                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+   60:3   warning  'status' is assigned a value but never used                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+  275:53  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  343:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/Projects.tsx
+    9:8  warning  'GlassSurface' is defined but never used                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+  272:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  307:3  warning  'isLast' is assigned a value but never used                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/SplitText.tsx
+   48:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/SplitText.tsx:48:7
+  46 |   useEffect(() => {
+  47 |     if (document.fonts.status === 'loaded') {
+> 48 |       setFontsLoaded(true);
+     |       ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  49 |     } else {
+  50 |       document.fonts.ready.then(() => {
+  51 |         setFontsLoaded(true);  react-hooks/set-state-in-effect
+   66:18  warning  '_' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          @typescript-eslint/no-unused-vars
+  131:18  warning  '_' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          @typescript-eslint/no-unused-vars
+
+/Users/muhammadiatisam/Documents/Portfolio Website /my-app/components/TechDome.tsx
+  373:54  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  425:16  error    'vMagX' is never reassigned. Use 'const' instead                                                                                                                                                                                                                                         prefer-const
+  425:23  error    'vMagY' is never reassigned. Use 'const' instead                                                                                                                                                                                                                                         prefer-const
+  478:22  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  555:24  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  641:18  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  809:32  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  810:32  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  811:40  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  812:33  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  813:36  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  814:34  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  840:40  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  841:40  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  842:43  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  843:43  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  877:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+✖ 50 problems (25 errors, 25 warnings)
+  3 errors and 0 warnings potentially fixable with the `--fix` option.
+

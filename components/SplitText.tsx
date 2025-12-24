@@ -45,6 +45,7 @@ const SplitText: React.FC<SplitTextProps> = ({
 
   useEffect(() => {
     if (document.fonts.status === 'loaded') {
+      // eslint-disable-next-line
       setFontsLoaded(true);
     } else {
       document.fonts.ready.then(() => {

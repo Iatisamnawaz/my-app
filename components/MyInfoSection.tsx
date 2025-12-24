@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
-import { GraduationCap, Award, Download, ExternalLink } from "lucide-react";
+import { GraduationCap, Award, ExternalLink } from "lucide-react";
 import { educationData, socialLinks } from "@/app/constants";
 
 // --- Components ---
@@ -203,7 +203,7 @@ export default function MyInfoSection() {
                 </motion.div>
 
                 <div className="grid grid-cols-2 gap-4">
-                    {socialLinks.map((link, i) => (
+                    {socialLinks.map((link) => (
                     <MagneticWrapper key={link.name} className="w-full">
                         <a 
                         href={link.url}

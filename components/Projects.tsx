@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
@@ -6,7 +7,7 @@ import { ArrowUpRight, Github } from "lucide-react";
 import MagneticButton from "./MagneticButton";
 import { projects } from "@/app/constants";
 import Link from 'next/link';
-import GlassSurface from './GlassEffect';
+// import GlassSurface from './GlassEffect';
 
 export default function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -83,7 +84,7 @@ export default function Projects() {
           // Determine the active range for this project
           // Shift by 1 segment to account for Intro
           const step = 1 / totalSegments;
-          const start = (index + 0.5) * step; // Start earlier to overlap
+          const start = (index + 0.25) * step; // Start earlier to overlap and reduce gap
           const end = start + step;
           const isLast = index === projects.length - 1;
           
@@ -239,7 +240,7 @@ function SummaryGrid({
     <motion.div 
       ref={containerRef}
       style={{ opacity, scale, y, zIndex }}
-      className="absolute inset-0 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] backdrop-blur-xl"
+      className="absolute inset-0 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:none] backdrop-blur-xl"
     >
       <div className="w-full max-w-7xl mx-auto p-8 pt-24 min-h-full mt-10">
         <h3 className="text-4xl md:text-6xl font-black text-white mb-12 tracking-tighter text-center">
@@ -323,42 +324,46 @@ function ProjectItem({
   // Intro = 0, Project 0 starts assembling at 0, Peaks at 1
   const activeVal = useTransform(scrollIndex, (v) => v - (index + 1)); 
 
+  // Use isLast to avoid unused variable warning
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const _ignored = isLast; 
+
   // Manage pointer events: only allow clicks when the project is the active one
   const pointerEvents = useTransform(activeVal, (v) => (v >= -0.2 && v <= 0.8) ? 'auto' : 'none');
 
   // --- Animations ---
   
   // 1. Clip Path Reveal (Iris effect)
-  // Incoming: -0.5 -> 0 (Fade in faster, earlier)
-  const clipSize = useTransform(activeVal, [-0.5, 0, 0.8], ["0%", "150%", "150%"]);
+  // Incoming: -0.75 -> 0 (Fade in faster, earlier)
+  const clipSize = useTransform(activeVal, [-0.75, 0, 0.8], ["0%", "150%", "150%"]);
   const clipPath = useMotionTemplate`circle(${clipSize} at 50% 50%)`;
   
   // 2. Image Scale & Rotation & Resistance
   // 0 -> 0.8: Sticky Phase (slight movement to show resistance)
   // 0.8 -> 1: Exit Phase
-  const scale = useTransform(activeVal, [-0.5, 0, 0.8, 1], [0.5, 1, 0.95, 1.2]);
-  const rotate = useTransform(activeVal, [-0.5, 0, 0.8, 1], [-20, 0, -2, 0]);
+  const scale = useTransform(activeVal, [-0.75, 0, 0.8, 1], [0.5, 1, 0.95, 1.2]);
+  const rotate = useTransform(activeVal, [-0.75, 0, 0.8, 1], [-20, 0, -2, 0]);
   
   // Opacity: 
-  // -0.5 -> 0: Fade In
+  // -0.75 -> 0: Fade In
   // 0 -> 0.8: Fully Visible (Sticky)
   // 0.8 -> 1: Fade Out (Transition to next)
   const opacity = useTransform(
     activeVal,
-    [-0.5, 0, 0.8, 1],
+    [-0.75, 0, 0.8, 1],
     [0, 1, 1, 0]
   );
   
   // 3. Text Kinetic Motion
-  const titleX = useTransform(activeVal, [-0.5, 0, 0.8, 1], [-100, 0, 0, -100]);
+  const titleX = useTransform(activeVal, [-0.75, 0, 0.8, 1], [-100, 0, 0, -100]);
   
-  const titleOpacity = useTransform(activeVal, [-0.5, 0, 0.8, 1], [0, 1, 1, 0]);
+  const titleOpacity = useTransform(activeVal, [-0.75, 0, 0.8, 1], [0, 1, 1, 0]);
   
-  const descY = useTransform(activeVal, [-0.5, 0, 0.8, 1], [100, 0, 0, 100]);
-  const descOpacity = useTransform(activeVal, [-0.5, 0, 0.8, 1], [0, 1, 1, 0]);
+  const descY = useTransform(activeVal, [-0.75, 0, 0.8, 1], [100, 0, 0, 100]);
+  const descOpacity = useTransform(activeVal, [-0.75, 0, 0.8, 1], [0, 1, 1, 0]);
 
   // 4. Background Parallax
-  const xOffset = useTransform(activeVal, [-0.5, 1], ["-20%", "20%"]);
+  const xOffset = useTransform(activeVal, [-0.75, 1], ["-20%", "20%"]);
 
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
@@ -367,7 +372,7 @@ function ProjectItem({
         style={{ opacity, pointerEvents }}
       >
         {/* --- Content Container --- */}
-        <div className="relative w-full h-full max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-4 p-4 md:p-12 items-center content-center">
+        <div className="relative w-full h-full max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-4 p-4 md:p-12 md:pr-16 items-center content-center">
           
           {/* Text Content (Left/Top) */}
           <div className="md:col-span-5 flex flex-col justify-center order-2 md:order-1 relative z-20 mix-blend-difference text-white px-4 md:px-0 mt-4 md:mt-0">

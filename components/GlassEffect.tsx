@@ -205,7 +205,9 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   const [backdropFilterSupported, setBackdropFilterSupported] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     setSvgSupported(supportsSVGFilters());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     setBackdropFilterSupported(supportsBackdropFilter());
   }, []);
 

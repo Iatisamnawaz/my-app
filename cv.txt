@@ -1,0 +1,42 @@
+LMKR (Islamabad, Pakistan)                                                                  	                     April 2025 – Present
+Application Engineer 
+
+Project Name:  Petrohive 					    		        April 2025 - Present
+Development of a Rag based Chatbot
+Skills summary:
+Designed and developed a Retrieval-Augmented Generation (RAG) based chatbot, enabling accurate and context-aware responses from complex document sets.
+Extracted structured and unstructured data (tables, images, text) from scanned and native PDFs using advanced open-source libraries such as PDFPlumber, PyMuPDF4LLM, and OCRmyPDF. Improving the current extraction accuracy to 90 %.
+Engineered a Chroma vector database with rich metadata, optimizing semantic search and boosting retrieval accuracy by 50%.
+Built agentic chatbot workflows with LangGraph, modularizing retrieval steps for scalability, maintainability, and improved efficiency, Utilizing Flask API for integrating the Application.
+Integrated advanced reranking techniques and Table of Contents (ToC) navigation, ensuring precise retrieval of domain-relevant documents.
+Developed and worked on prompt engineering for the chatbot to return responses in a markdown format that would then be handled by the frontend to display formatted text and tables.
+Implemented local deployment with Ollama and open-source LLMs, securing sensitive data by preventing external data exposure while maintaining high response quality. 
+Enhanced Petrohive’s Well Correlation application, integrating Flask API with Plotly for dynamic well correlation visualizations from large datasets.
+Refactored and modularized the codebase by applying separation of concerns principles, improving maintainability and optimizing plotting performance.
+Upgraded the front-end interface with Tailwind CSS, delivering a modern, responsive UI that improved user experience and accessibility.
+Introduced advanced filtering options, enabling geoscientists and engineers to quickly analyze wells and correlations with greater precision and efficiency
+
+API development for calculating and processing excel files and using Panda Power Library
+Skills summary: 
+Designed and deployed a FastAPI-based service to process Excel files, extract key datasets, and integrate with the Panda Power library for advanced power system analysis.
+Automated calculations of line losses, transformer losses, and voltage drops, improving efficiency and reducing manual engineering effort.
+Implemented intelligent debugging and validation checks, enabling early detection of errors in input files and identifying isolated or disconnected network nodes.
+Delivered a robust, production-ready API that streamlined power grid performance assessment and improved data reliability.
+
+Edulaxy							           		        January 2020 – March 2025
+Lead UX and UI Designer
+Job Responsibilities:
+Implemented Chatbot for assisting users with their queries. Automated the workflow using python for creating receipts and user Id’s on their learning management system 
+Led the UI/UX design team in revamping the company website, resulting in a 40 % increase in user management and 20% decrease in bounce rate.
+
+Parkyeri					           	      		September 2023 – March 2024
+Full Stack Web Developer (Python)
+Job Responsibilities:
+Analyzed a hotel review dataset to perform sentiment analysis and aspect-based opinion mining, extracting key insights into service strengths and weaknesses through advanced machine learning models and exploratory data analysis (EDA).
+Developed a complete Django Application that was supposed to allow users to have a hackathon. 
+Contributed to the development of a Python-based SDK that was working on developing an object oriented database. Worked with the team to develop and improve the SDK functions and their efficiency. Fixed bugs and technical issues in the code implementation.
+
+Bright Network Internship Experience (IEUK)	           	      				        June 2023
+Technology Intern
+Job Responsibilities:
+Contributed to the design and development of research projects, Utilized strategic communication skills to effectively collaborate with cross-functional teams, leading to a 15% improvement in project timelines and deliverables
