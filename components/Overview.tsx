@@ -71,7 +71,7 @@ export default function Overview() {
                                         src={tech.src} 
                                         alt={tech.alt || 'Tech icon'} 
                                         fill
-                                        className="object-contain p-3" 
+                                        className={`object-contain p-3 ${tech.src.includes('Flask') ? 'invert' : ''}`}
                                         sizes="64px"
                                     />
                                 </div>
